@@ -72,15 +72,16 @@ RUN pip install tensorboard && \
 
 # Create necessary directories under /workspace as diambra
 RUN mkdir -p /workspace/diambra && \
-    touch /workspace/diambra/credentials && \
-    chmod 777 /workspace/diambra/credentials
+    mkdir -p /workspace/roms && \
+    chmod 777 /workspace/roms && \
+    chmod 777 /workspace/diambra
 
-# Set environment variable for ROMs
-ENV DIAMBRAROMSPATH=/workspace/roms
-ENV DIAMBRA_SCALE=1
+# Set environment variables
+ENV SCALE=1
 ENV EXTRA_ARGS=""
-ENV DIAMBRA_CREDENTIALS_PATH=/workspace/diambra
-ENV DIAMBRA_CREDENTIALS_FILE=/workspace/diambra/credentials
+ENV TRAINING_SCRIPT="/workspace/scripts/train.py"
+ENV DIAMBRAROMSPATH="/workspace/roms"
+
 
 # Set up a working directory for code
 WORKDIR /workspace
