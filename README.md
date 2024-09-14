@@ -145,7 +145,7 @@ docker run --privileged \
   -v /path/to/diambra:/workspace/diambra \
   -v /path/to/output:/workspace/output \
   -e SCALE=2 \
-  -e EXTRA_ARGS="-m=4" \
+  -e EXTRA_ARGS="--batch-size 64" \
   -e TRAINING_SCRIPT="/path/to/your_training_script.py" \
   -p 7007:6006 \
   --name diambra-trainer \
