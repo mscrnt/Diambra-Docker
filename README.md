@@ -1,10 +1,14 @@
+Here's the full revised README with your requested changes:
+
+---
+
 # Diambra Docker Image
 
 This repository provides a Docker image and entrypoint script for training reinforcement learning models using [DIAMBRA Arena](https://github.com/diambra/arena), [Stable Baselines 3](https://github.com/DLR-RM/stable-baselines3), and PyTorch. The image includes support for CUDA-enabled GPUs, TensorBoard for real-time monitoring, and Docker-in-Docker (DinD) for containerized environments.
 
 ## Table of Contents
 
-- [Diambra Trainer Docker Image](#diambra-trainer-docker-image)
+- [Diambra Docker Image](#diambra-docker-image)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Prerequisites and Preparing Directories](#prerequisites-and-preparing-directories)
@@ -22,7 +26,6 @@ This repository provides a Docker image and entrypoint script for training reinf
   - [Environment Variables](#environment-variables)
   - [Exposed Ports](#exposed-ports)
   - [Accessing TensorBoard](#accessing-tensorboard)
-  - [Customization](#customization)
   - [License](#license)
   - [Contributing](#contributing)
 
@@ -180,38 +183,22 @@ docker run --privileged \
 
 ## Environment Variables
 
-You can customize the behavior of the Docker container by setting the following environment variables:
-
-- **`SCALE`**: Adjust the number of parallel DIAMBRA environments (default: `1`).
+- **`SCALE`**: Adjust to change the number of parallel environments.
   ```bash
   -e SCALE=4
   ```
-
-- **`EXTRA_ARGS`**: Pass additional arguments to your training script (default: `""`).
+- **`EXTRA_ARGS`**: Pass additional arguments to your training script.
   ```bash
   -e EXTRA_ARGS="--learning-rate 0.0001 --batch-size 64"
   ```
-
-- **`TRAINING_SCRIPT`**: Specify a custom path for the training script (default: `/workspace/scripts/train.py`).
+- **`TRAINING_SCRIPT`**: Specify a custom path for the training script.
   ```bash
   -e TRAINING_SCRIPT="/path/to/your_training_script.py"
   ```
-
-- **`AUTO`**: Automatically run the training script on startup (default: `true`).
+- **`AUTO`**: Automatically run the training script on startup.
   ```bash
   -e AUTO="true"
-  ```
-
-- **`STOP_AFTER_RUN`**: Stop the container after the training script completes (default: `false`).
-  ```bash
-  -e STOP_AFTER_RUN="true"
-  ```
-
-- **`DIAMBRAROMSPATH`**: Path to the directory containing game ROMs (default: `/workspace/roms`).  
-  **Note**: It's recommended not to change this unless you are familiar with how DIAMBRA Arena manages ROMs.
-  ```bash
-  -e DIAMBRAROMSPATH="/workspace/roms"
-  ```
+  ````
 
 ## Exposed Ports
 
@@ -226,17 +213,6 @@ http://localhost:7007
 ```
 
 Monitor your training progress with real-time visualizations of metrics like loss and reward.
-
-## Customization
-
-- **Training Script Arguments**: Use the `EXTRA_ARGS` environment variable to pass additional arguments to your training script.
-  ```bash
-  -e EXTRA_ARGS="--learning-rate 0.0001 --batch-size 64"
-  ```
-- **Scaling Environments**: Adjust `SCALE` to change the number of parallel environments.
-  ```bash
-  -e SCALE=4
-  ```
 
 ## License
 
