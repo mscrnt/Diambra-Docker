@@ -81,6 +81,8 @@ ENV SCALE=1
 ENV EXTRA_ARGS=""
 ENV TRAINING_SCRIPT="/workspace/scripts/train.py"
 ENV DIAMBRAROMSPATH="/workspace/roms"
+ENV STOP_AFTER_RUN="false"
+ENV AUTO="true"
 
 
 # Set up a working directory for code
