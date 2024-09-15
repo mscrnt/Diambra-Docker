@@ -1,8 +1,4 @@
-Here's the full revised README with your requested changes:
-
----
-
-# Diambra Trainer Docker Image
+# Diambra Docker Image
 
 This repository provides a Docker image and entrypoint script for training reinforcement learning models using [DIAMBRA Arena](https://github.com/diambra/arena), [Stable Baselines 3](https://github.com/DLR-RM/stable-baselines3), and PyTorch. The image includes support for CUDA-enabled GPUs, TensorBoard for real-time monitoring, and Docker-in-Docker (DinD) for containerized environments.
 
