@@ -183,22 +183,28 @@ docker run --privileged \
 
 ## Environment Variables
 
-- **`SCALE`**: Adjust to change the number of parallel environments.
+- **`SCALE`**: Adjust to change the number of parallel environments (default: `1`).
   ```bash
   -e SCALE=4
   ```
-- **`EXTRA_ARGS`**: Pass additional arguments to your training script.
+- **`EXTRA_ARGS`**: Pass additional arguments to your training script (default: `""`).
   ```bash
   -e EXTRA_ARGS="--learning-rate 0.0001 --batch-size 64"
   ```
-- **`TRAINING_SCRIPT`**: Specify a custom path for the training script.
+- **`TRAINING_SCRIPT`**: Specify a custom path for the training script (default: `/workspace/scripts/train.py`).
   ```bash
   -e TRAINING_SCRIPT="/path/to/your_training_script.py"
   ```
-- **`AUTO`**: Automatically run the training script on startup.
+- **`AUTO`**: Automatically run the training script on startup (default: `true`).
   ```bash
   -e AUTO="true"
-  ````
+  ```
+- **`STOP_AFTER_RUN`**: Stop the container after the training script completes (default: `false`).
+  ```bash
+  -e STOP_AFTER_RUN="true"
+  ```
+- **`DIAMBRAROMSPATH`**: Path to the directory containing game ROMs (default: `/workspace/roms`).  
+  **Note**: It is recommended not to change this unless you are familiar with how DIAMBRA Arena manages ROMs.
 
 ## Exposed Ports
 
