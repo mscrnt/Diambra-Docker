@@ -80,7 +80,7 @@ If you already have a DIAMBRA credentials file, follow these steps:
 
 If you don’t have a credentials file, the container will enter **Setup Mode** when it doesn’t detect the file. Follow these steps inside the container to generate the credentials:
 
-1. Start the container:
+1. Start the container (If you haven't already):
    ```bash
    docker run --privileged -v /path/to/diambra:/workspace/diambra -it mscrnt/diambra-trainer:latest
    ```
